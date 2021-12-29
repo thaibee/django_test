@@ -9,10 +9,5 @@ class News(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d')
     is_published = models.BooleanField(default=True)
 
-# id - INT
-# title - Varchar150
-# content - Text blank
-# created_at - DateTime auto_now_add
-# updated_at - DateTime auto_now
-# photo - Image -
-# is_published - Boolean
+    def __str__(self):
+        return self.title
