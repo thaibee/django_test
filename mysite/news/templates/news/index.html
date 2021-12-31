@@ -37,7 +37,14 @@
 <div class="container mt-3">
     <h1>{{ title }}</h1>
     <div class="row">
-        <div class="col-md-12">
+
+        <div class="list-group col-md-3">
+            {% for item in categories %}
+            <a href="/category/{{ item.pk }}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-9">
             {% for item in news %}
                 <div class="card mb-3">
                     <div class="card-header">
@@ -48,7 +55,7 @@
                             <div class="flex-shrink-0">
                                 {% if item.photo %}
                                     <img src="{{ item.photo.url }}" width="300" alt="" class="mr-3">
-                                    {% else %}
+                                {% else %}
                                     <img src="https://picsum.photos/300/200.webp?random={{ forloop.counter }}">
                                 {% endif %}
                             </div>
